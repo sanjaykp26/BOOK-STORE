@@ -7,21 +7,30 @@ import { AppComponent } from './app.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { BookListComponent } from './components/book-list/book-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { HomeComponent } from './components/home/home.component';
+import { SerchFilterPipe } from './components/pipe/serch-filter.pipe'
 
 @NgModule({
   declarations: [
     AppComponent,
     AddBookComponent,
     BookDetailComponent,
-    BookListComponent
+    BookListComponent,
+    HomeComponent,
+    SerchFilterPipe,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

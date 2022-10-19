@@ -1,5 +1,5 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CrudService } from 'src/app/service/crud.service';
 
@@ -12,10 +12,10 @@ export class AddBookComponent implements OnInit {
 bookForm:FormGroup;
   constructor(private formBuilder:FormBuilder, private router:Router,private ngZone:NgZone,private crudService:CrudService) {
     this.bookForm=this.formBuilder.group({
-      name:[""],
-      price:[""],
-      description:[""],
-      image:[""]
+      name:["",[Validators.required,Validators.pattern('[ a-z A-Z]*')]],
+      price:["",[Validators.required,Validators.pattern('[0-9]*')]],
+      description:["",[Validators.required,Validators.pattern('[ a-z A-Z]*')]],
+      image:["",[Validators.required]],
 
     })
    }

@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { HttpClient, HttpHeaders ,HttpErrorResponse} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable ,map,throwError} from 'rxjs';
+import { catchError, Observable ,map,throwError, BehaviorSubject} from 'rxjs';
 import { Book } from './book';
 
 
@@ -9,6 +9,7 @@ import { Book } from './book';
   providedIn: 'root'
 })
 export class CrudService {
+  search=new BehaviorSubject("")
 REST_API:string="http://localhost:8000/api"
 //set Http header
 httpHeaders=new HttpHeaders().set('Content-Type','application/json')

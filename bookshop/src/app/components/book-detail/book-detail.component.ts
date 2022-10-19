@@ -1,5 +1,5 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Route } from '@angular/router';
 import { CrudService } from 'src/app/service/crud.service';
 import { Router } from '@angular/router';
@@ -27,20 +27,22 @@ this.updateForm.setValue({
 })
     });
     this.updateForm=this.formBuilder.group({
-      name:[""],
-      price:[""],
-      description:[""],
-      image:[""]
+      name:["",[Validators.required,Validators.pattern('[ a-z A-Z]*')]],
+      price:["",[Validators.required,Validators.pattern('[0-9]*')]],
+      description:["",[Validators.required]],
+      image:["",[Validators.required]]
     })
     }
 
   ngOnInit(): void {}
   onUpdate(){
     this.crudApi.updateBook(this.getId,this.updateForm.value).subscribe(res=>{
-      console.log("updated successfully");
+      
+      console.log(res);
+      
       this.ngZone.run(()=>{
         this.router.navigateByUrl("/book-list")})
-      
+        console.log("updated successfully");
     },
     (err)=>{
       console.log(err);

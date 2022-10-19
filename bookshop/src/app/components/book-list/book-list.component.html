@@ -1,0 +1,91 @@
+<!-- <div class="container">
+    <div class="row d-flex justify-content-between flex-wrap flex-md-nowwrap align-items-center pt-3 pb-2 mb-3">
+       
+        <h2 class="h2">All books list</h2>
+    </div>
+</div>
+     <div class="table">
+        <table class="table">
+            <thead>
+                <tr class="table">
+                    
+                    <th scope="col">Name</th>
+                    <th scope="col">price</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">image</th>
+                    <th class="text-center" scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of Books; let i =index">
+                    <td >{{book.name}}</td>
+                    <td>{{book.price}}</td>
+                    <td >{{book.description}}</td>
+                    <img src="{{book.image}}" width="80px"/>
+                    <td class="text-center">
+                    <button class="btn btn-sm btn-primary " routerLink="/edit-book/{{book._id}}">edit</button>
+                    <button class="btn btn-sm btn-danger mt-3" (click)="delete(book._id,1)">delete</button>  </td>             
+                </tr>
+            </tbody>
+        </table>
+    </div>   -->
+        
+    <nav class="navbar navbar-expand-lg bg-danger">
+        <div class="container-fluid " >
+          <a class="navbar-brand" routerLink="/book-list"style="color: white;">Book Store</a>
+          <form class="d-flex">
+           
+          </form>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto ms-3 mb-lg-0">
+              <li class="nav-item ">
+                <a class="nav-link active" href='/book-list' style="color: white;">Show Books</a>
+              </li>
+              <li class="nav-item  ">
+                <a class="nav-link" routerLink='/add-book' style="color: white;">Add Book</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+        
+      </nav>
+    
+    
+    
+
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 ">
+            <div class="col mb-5" *ngFor="let book of Books">
+                <div class="card h-100 p-3">
+                    <!-- Product image--> 
+                    <img class="card-img-top" style="height: 270px;" src="{{book.image}}" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="card-text">
+                                <!-- Product name-->
+                            <h2 class="fw-bolder">{{book.name}}</h2>
+                            <!-- Product price-->
+                          <h3> Price: {{book.price}}Rs</h3> 
+                                </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        
+                        <button class="btn btn-sm btn-outline-success " routerLink="/edit-book/{{book._id}}">edit</button>
+                    <button class="btn btn-sm btn-outline-danger ms-2 " (click)="delete(book._id,1)">delete</button>              
+                                    
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+

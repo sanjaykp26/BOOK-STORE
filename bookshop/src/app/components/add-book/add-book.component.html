@@ -1,0 +1,102 @@
+
+     <!-- <div class="row justify-content-center mt-4 ">
+    <div class="col-md-5" style="border:1px solid blue ; border-radius: 5px;;">
+        <form [formGroup]="bookForm" (ngSubmit)="onSubmit()" class="p-3">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" formControlName="name" required placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label for="name">Price</label>
+        <input type="text" class="form-control" formControlName="price" required placeholder="Price">
+    </div>
+    <div class="form-group">
+        <label for="name">Description</label>
+        <input type="text" class="form-control" formControlName="description" required placeholder="description">
+    </div>
+    <div class="form-group">
+        <label for="name">image</label>
+        <input type="text" class="form-control" formControlName="image" required placeholder="image">
+    </div>
+    <div class="form-group ">
+     <button class="btn btn-primary mt-4" type="submit"> add book</button>   
+    </div>
+        </form>
+    </div>
+</div>   -->
+<nav class="navbar navbar-expand-lg bg-danger">
+    <div class="container-fluid " >
+      <a class="navbar-brand" routerLink="/book-list"style="color: white;">Book Store</a>
+      <form class="d-flex">
+       
+      </form>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto ms-3 mb-lg-0">
+          <li class="nav-item ">
+            <a class="nav-link active" href='/book-list' style="color: white;">Show Books</a>
+          </li>
+          <li class="nav-item  ">
+            <a class="nav-link" routerLink='/add-book' style="color: white;">Add Book</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+  </nav>
+
+
+
+
+
+<div class="container-fluid">
+    
+<div class="row">
+    <h1 class="text-center">Add book</h1>
+        <div class="col-4"></div>
+        <div class="col-4 ">
+            <form [formGroup]="bookForm" (ngSubmit)="bookForm.valid && onSubmit()">
+            <div class=" form-group mb-3">
+              <label for="exampleInputName" class="form-label">Book Name</label>
+              <input type="text" class="form-control" id="exampleInputName"formControlName="name" >
+              
+            </div>
+            <div *ngIf="this.bookForm.get('name')?.touched&&this.bookForm.get('name')?.errors" class="m-3" style="color: red;">
+                please enter  name
+            </div> 
+            <div class= "form-group mb-3">
+              <label for="exampleInputPrice" class="form-label">Price</label>
+              <input type="number" class="form-control" id="exampleInputPrice"formControlName="price" >
+            </div>
+            <div *ngIf="this.bookForm.get('price')?.touched&&this.bookForm.get('price')?.errors" class="m-3" style="color: red;">
+                please enter price
+            </div> 
+            <div class="form-group mb-3">
+                <label for="exampleInputDes" class="form-label">Description</label>
+                <input type="text" class="form-control" id="exampleInputDes"formControlName="description">
+              </div>
+               <div *ngIf="this.bookForm.get('description')?.touched&&this.bookForm.get('description')?.errors" class="m-3" style="color: red;">
+                please enter price
+            </div> 
+              <div class=" form-group mb-3">
+                <label for="exampleInputImage" class="form-label">image</label>
+                <input type="text" class="form-control" id="exampleInputImage"formControlName="image">
+              </div>
+              <div *ngIf="this.bookForm.get('image')?.touched&&this.bookForm.get('image')?.errors" class="m-3" style="color: red;">
+                please enter proper url
+            </div> 
+              
+           <div class="form-group">
+            <button type="submit" class="btn btn-success">Add book</button>
+           </div>
+            
+          </form>
+    </div>
+        <div class="col-4"></div>
+    
+    </div>
+       
+</div>
+
+    
+

@@ -8,14 +8,18 @@ import { CrudService } from 'src/app/service/crud.service';
 })
 export class BookListComponent implements OnInit {
 Books:any=[];
+searchItem:any;
   constructor( private crudApi:CrudService) { }
 
   ngOnInit(): void {
-    this.crudApi.getBooks().subscribe(res=>{
+    this.crudApi.getBooks().subscribe((res)=>{
       console.log(res);
       this.Books=res;
       
     })
+this.crudApi.search.subscribe((term)=>{
+  this.searchItem=term
+})
   }
   delete(id:any,i:any){
     console.log(id);
